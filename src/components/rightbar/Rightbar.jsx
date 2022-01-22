@@ -1,4 +1,6 @@
 import './rightbar.css';
+import {Users}  from '../../dummyData'
+import OnlineFriend from '../onlineFriend/OnlineFriend';
 
 export default function Rightbar() {
   return <div className='rightbar'>
@@ -12,34 +14,9 @@ export default function Rightbar() {
       <img className="rightbar-ad" src="/assets/ad.png"/>
       <h4 className="rightbar-title">Online Friends</h4>
       <ul className="rightbar-friend-list">
-        <li className="rightbar-friend">
-          <div className="rightbar-profile-img-container">
-            <img className='rightbar-profile-img' src="/assets/person/8.jpeg" />
-            <span className="rightbar-online"></span>
-          </div>
-          <span className="rightbar-profile-name">John Smith</span>
-        </li>
-        <li className="rightbar-friend">
-          <div className="rightbar-profile-img-container">
-            <img className='rightbar-profile-img' src="/assets/person/8.jpeg" />
-            <span className="rightbar-online"></span>
-          </div>
-          <span className="rightbar-profile-name">John Smith</span>
-        </li>
-        <li className="rightbar-friend">
-          <div className="rightbar-profile-img-container">
-            <img className='rightbar-profile-img' src="/assets/person/8.jpeg" />
-            <span className="rightbar-online"></span>
-          </div>
-          <span className="rightbar-profile-name">John Smith</span>
-        </li>
-        <li className="rightbar-friend">
-          <div className="rightbar-profile-img-container">
-            <img className='rightbar-profile-img' src="/assets/person/8.jpeg" />
-            <span className="rightbar-online"></span>
-          </div>
-          <span className="rightbar-profile-name">John Smith</span>
-        </li>
+        {Users.map(u => (
+          <OnlineFriend key={u.id} user={u} />
+        ))}
       </ul>
     </div>
   </div>;
